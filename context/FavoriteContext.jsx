@@ -1,58 +1,110 @@
+// 'use client';
+
+// import { createContext, useContext, useState } from 'react';
+
+// const FavoriteContext = createContext(undefined);
+
+// export function FavoriteProvider({ children }) {
+//   const [favorites, setFavorites] = useState([]);
+
+//   const addFavorite = (user) => {
+//     setFavorites((prevFavorites) => {
+//       const alreadyFavorite = prevFavorites.some(
+//         (item) => item.id === user.id
+//       );
+
+//       if (alreadyFavorite) {
+//         return prevFavorites;
+//       }
+
+//       return [...prevFavorites, user];
+//     });
+//   };
+
+//   const removeFavorite = (userId) => {
+//     setFavorites((prevFavorites) =>
+//       prevFavorites.filter((item) => item.id !== userId)
+//     );
+//   };
+
+//   const isFavorite = (userId) => {
+//     return favorites.some((item) => item.id === userId);
+//   };
+
+//   const value = {
+//     favorites,
+//     addFavorite,
+//     removeFavorite,
+//     isFavorite,
+//   };
+
+//   return (
+//     <FavoriteContext.Provider value={value}>
+//       {children}
+//     </FavoriteContext.Provider>
+//   );
+// }
+
+// export function useFavorite() {
+//   const context = useContext(FavoriteContext);
+
+//   if (context === undefined) {
+//     throw new Error(
+//       'useFavorite harus dipakai di dalam <FavoriteProvider>'
+//     );
+//   }
+
+//   return context;
+// }
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const FavoriteContext = createContext(undefined);
 
 export function FavoriteProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
 
-  const addFavorite = (user) => {
-    setFavorites((prevFavorites) => {
-      const alreadyFavorite = prevFavorites.some(
-        (item) => item.id === user.id
-      );
+  useEffect(() => {
+    fetch('/api/favorites')
+      .then((res) => res.json())
+      .then(setFavorites);
+  }, []);
 
-      if (alreadyFavorite) {
-        return prevFavorites;
-      }
-
-      return [...prevFavorites, user];
+  async function addFavorite(user) {
+    const res = await fetch('/api/favorites', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
     });
-  };
 
-  const removeFavorite = (userId) => {
-    setFavorites((prevFavorites) =>
-      prevFavorites.filter((item) => item.id !== userId)
-    );
-  };
+    if (res.ok) {
+      const saved = await res.json();
+      setFavorites((prev) => [...prev, saved]);
+    }
+  }
 
-  const isFavorite = (userId) => {
-    return favorites.some((item) => item.id === userId);
-  };
+  async function removeFavorite(userId) {
+    const res = await fetch(`/api/favorites/${userId}`, { method: 'DELETE' });
 
-  const value = {
-    favorites,
-    addFavorite,
-    removeFavorite,
-    isFavorite,
-  };
+    if (res.ok) {
+      setFavorites((prev) => prev.filter((f) => f.id !== userId));
+    }
+  }
 
-  return (
-    <FavoriteContext.Provider value={value}>
-      {children}
-    </FavoriteContext.Provider>
-  );
+  function isFavorite(userId) {
+    return favorites.some((f) => f.id === userId);
+  }
+
+  const value = { favorites, addFavorite, removeFavorite, isFavorite };
+
+  return <FavoriteContext.Provider value={value}>{children}</FavoriteContext.Provider>;
 }
 
 export function useFavorite() {
   const context = useContext(FavoriteContext);
-
   if (context === undefined) {
-    throw new Error(
-      'useFavorite harus dipakai di dalam <FavoriteProvider>'
-    );
+    throw new Error('useFavorite harus dipakai di dalam <FavoriteProvider>');
   }
-
   return context;
 }
