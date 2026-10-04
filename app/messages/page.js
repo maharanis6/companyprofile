@@ -1,4 +1,5 @@
 import { messages } from '@/lib/db';
+import { deleteMessageAction } from './actions';
 
 export default function MessagesPage() {
   return (
@@ -10,11 +11,19 @@ export default function MessagesPage() {
           <p className="text-muted-foreground">Belum ada pesan masuk.</p>
         ) : (
           messages.map((msg) => (
-            <div key={msg.id} className="rounded-lg border p-4">
-              <p className="font-medium">
-                {msg.name} — {msg.email}
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">{msg.message}</p>
+            <div key={msg.id} className="flex items-center justify-between rounded-lg border p-4">
+              <div>
+                <p className="font-medium">
+                  {msg.name} — {msg.email}
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{msg.message}</p>
+              </div>
+
+              <form action={deleteMessageAction.bind(null, msg.id)}>
+                <button type="submit" className="rounded bg-red-500 px-3 py-1.5 text-sm font-medium text-white hover:bg-red-600 transition-colors">
+                  Hapus
+                </button>
+              </form>
             </div>
           ))
         )}

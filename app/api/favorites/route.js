@@ -5,12 +5,23 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  const body = await request.json();
-  const result = addFavorite(body);
+  try {
+    const body = await request.json();
+    if (!body || Object.keys(body).length === 0) {
+      return Response.json({ error: 'Body request tidak boleh kosong' }, { status: 400 });
+    }
+    if (!body.id || !body.name) {
+      return Response.json({ error: 'Field "id" dan "name" wajib diisi' }, { status: 400 });
+    }
 
-  if (!result.success) {
-    return Response.json({ error: result.error }, { status: result.status });
+    const result = addFavorite(body);
+
+    if (!result.success) {
+      return Response.json({ error: result.error }, { status: result.status });
+    }
+
+    return Response.json(result.data, { status: result.status });
+  } catch (error) {
+    return Response.json({ error: 'Format JSON body tidak valid atau kosong' }, { status: 400 });
   }
-
-  return Response.json(result.data, { status: result.status });
 }

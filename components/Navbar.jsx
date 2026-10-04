@@ -14,6 +14,8 @@ const links = [
   { href: '/services', label: 'Services' },
   { href: '/profile', label: 'Profile' },
   { href: '/contact', label: 'Contact' },
+  { href: '/messages', label: 'Messages' },
+  { href: '/users', label: 'Users' },
   { href: '/favorites', label: 'Favorites' },
 ];
 
