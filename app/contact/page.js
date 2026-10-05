@@ -40,9 +40,9 @@ export default function Contact() {
 
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-accent">Contact</p>
+          <p className="text-sm font-semibold text-accent">Kontak</p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">Let&apos;s talk</h1>
-          <p className="mt-4 text-muted-foreground">Have a project or question in mind? Send us a message and we&apos;ll get back to you.</p>
+          <p className="mt-4 text-muted-foreground">Satu alur sederhana yang membantu setiap anggota komunitas mengambil peran sesuai kebutuhan dan kemampuannya. Kenali platform sebelum mendaftar.</p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-5">
@@ -66,15 +66,15 @@ export default function Contact() {
             <CardContent>
               {submitted ? (
                 <div className="flex h-full min-h-64 flex-col items-center justify-center text-center">
-                  <p className="text-lg font-semibold">Message sent</p>
-                  <p className="mt-2 text-sm text-muted-foreground">Thanks for reaching out — we&apos;ll reply soon.</p>
+                  <p className="text-lg font-semibold">Pesan dikirim</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Terima kasih telah menghubungi kami — kami akan merespons segera.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
                       <label htmlFor="name" className="text-sm font-medium">
-                        Name
+                        Nama
                       </label>
                       <Input id="name" placeholder="Your name" required value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
@@ -89,7 +89,7 @@ export default function Contact() {
 
                   <div className="space-y-1.5">
                     <label htmlFor="message" className="text-sm font-medium">
-                      Message
+                      Pesan
                     </label>
                     <textarea
                       id="message"
@@ -103,14 +103,14 @@ export default function Contact() {
                   </div>
 
                   <Button type="submit" className="w-full rounded-full">
-                    Send message
+                    Kirim Pesan
                   </Button>
                 </form>
               )}
               <div className="mt-6 rounded-lg bg-input p-4">
-                <p>Name: {name}</p>
+                <p>Nama: {name}</p>
                 <p>Email: {email}</p>
-                <p>Message:{message}</p>
+                <p>Pesan: {message}</p>
               </div>
             </CardContent>
           </Card>

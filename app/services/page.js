@@ -6,18 +6,18 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 const services = [
   {
     icon: Code2,
-    title: 'Web Development',
-    description: 'Build modern web applications with a fast, maintainable codebase — from landing pages to full products.',
+    title: 'Info cuaca & bencana',
+    description: 'Pahami kondisi di sekitar Anda melalui informasi yang ringkas dan mudah ditindaklanjuti.',
   },
   {
     icon: Palette,
-    title: 'UI Development',
-    description: 'Create clean and responsive interfaces that stay consistent across devices and themes.',
+    title: 'Lapor dengan lebih mudah',
+    description: 'Ceritakan situasi melalui asisten percakapan dan pantau tindak lanjut laporan Anda.',
   },
   {
     icon: LineChart,
-    title: 'Consulting',
-    description: 'Get guidance on architecture, tooling, and roadmap for your digital projects.',
+    title: 'Aksi komunitas',
+    description: 'Bergabung dalam aksi berbasis laporan warga yang telah dikurasi dan disetujui admin.',
   },
 ];
 
@@ -28,16 +28,16 @@ export default function Services() {
 
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-primary">Services</p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">Our Services</h1>
-          <p className="mt-4 text-muted-foreground">A focused set of services to help you plan, design, and build your next digital product.</p>
+          <p className="text-sm font-semibold text-secondary">Layanan</p>
+          <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl text-primary">Layanan Kami</h1>
+          <p className="mt-4 text-muted-foreground">Satu alur sederhana yang membantu setiap anggota komunitas mengambil peran sesuai kebutuhan dan kemampuannya.</p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {services.map(({ icon: Icon, title, description }) => (
-            <Card key={title} className="group relative overflow-hidden border border-white/10 bg-foreground/[0.03] transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
+            <Card key={title} className="group relative overflow-hidden border border-white/10 bg-foreground/[0.03] transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 text-primary font-bold">
               <CardHeader>
-                <div className="mb-3 flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+                <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-secondary/10 text-accent transition-colors group-hover:bg-secondary/20">
                   <Icon className="size-5" />
                 </div>
                 <CardTitle>{title}</CardTitle>

@@ -9,13 +9,13 @@ import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/profile', label: 'Profile' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/messages', label: 'Messages' },
-  { href: '/users', label: 'Users' },
+  { href: '/', label: 'Beranda' },
+  { href: '/about', label: 'Tentang' },
+  { href: '/services', label: 'Layanan' },
+  { href: '/profile', label: 'Profil' },
+  { href: '/contact', label: 'Kontak' },
+  // { href: '/messages', label: 'Messages' },
+  // { href: '/users', label: 'Users' },
   { href: '/favorites', label: 'Favorites' },
 ];
 
@@ -36,7 +36,7 @@ export default function Navbar() {
             const isActive = link.href === '/' ? pathname === '/' : pathname?.startsWith(link.href);
 
             return (
-              <Link key={link.href} href={link.href} className={cn('rounded-full px-3 py-1.5 transition-colors hover:text-foreground', isActive && 'bg-foreground/10 text-foreground')}>
+              <Link key={link.href} href={link.href} className={cn('rounded-full px-3 py-1.5 transition-colors hover:text-foreground', isActive && 'bg-border text-foreground')}>
                 {link.label}
               </Link>
             );
@@ -44,7 +44,7 @@ export default function Navbar() {
         </div>
         {submitted && <span>Hi, {name} 👋</span>}
         <Link href="/contact" className={cn(buttonVariants({ size: 'sm' }), 'rounded-full')}>
-          Get in touch
+          Hubungi Kami
         </Link>
       </nav>
     </header>

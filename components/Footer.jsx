@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <div className="max-w-xs">
             <p className="text-lg font-bold text-secondary">Paras</p>
-            <p className="mt-2 text-sm text-primary">Climate Change Community</p>
+            <p className="mt-2 text-sm text-primary">Platform perempuan untuk aksi iklim dan respons bencana berbasis komunitas.</p>
             <p className="mt-2 text-sm text-muted-foreground font-bold">Ruhana Kuddus</p>
             <ol className="mt-2 list-inside list-decimal text-muted-foreground">
               <li className="mt-2 text-sm text-muted-foreground">Annisafauziah Pebriyanti</li>
