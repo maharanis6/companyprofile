@@ -14,8 +14,8 @@ const links = [
   { href: '/services', label: 'Layanan' },
   { href: '/profile', label: 'Profil' },
   { href: '/contact', label: 'Kontak' },
-  // { href: '/messages', label: 'Messages' },
-  // { href: '/users', label: 'Users' },
+  { href: '/messages', label: 'Messages' },
+  { href: '/users', label: 'Users' },
   { href: '/favorites', label: 'Favorites' },
 ];
 

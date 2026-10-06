@@ -40,10 +40,17 @@ export default function Home() {
             </div>
 
             <h1 className="text-gradient text-4xl font-bold tracking-tight md:text-6xl">
-              <span className="text-secondary">Perempuan</span> Bergerak,<span className="text-primary"><br />Lingkungan</span> Bertumbuh.
+              <span className="text-secondary">Perempuan</span> Bergerak,
+              <span className="text-primary">
+                <br />
+                Lingkungan
+              </span>{' '}
+              Bertumbuh.
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-muted-foreground"><span class="text-secondary">PARAS</span> membantu komunitas memahami risiko, membagikan kondisi di lapangan, dan mengubah kepedulian menjadi langkah yang relevan bagi lingkungan setempat.</p>
+            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+              <span className="text-secondary">PARAS</span> membantu komunitas memahami risiko, membagikan kondisi di lapangan, dan mengubah kepedulian menjadi langkah yang relevan bagi lingkungan setempat.
+            </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link href="/services" className={cn(buttonVariants({ size: 'lg' }), 'rounded-full px-6 shadow-lg shadow-primary/20')}>
@@ -62,7 +69,9 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl text-primary">Bagaimana Kami Membantu Anda</h2>
-          <p className="mt-3 text-muted-foreground"><span className="text-secondary">PARAS</span> menyediakan berbagai fitur yang membantu komunitas dalam menghadapi tantangan lingkungan.</p>
+          <p className="mt-3 text-muted-foreground">
+            <span className="text-secondary">PARAS</span> menyediakan berbagai fitur yang membantu komunitas dalam menghadapi tantangan lingkungan.
+          </p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
