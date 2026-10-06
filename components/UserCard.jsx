@@ -92,7 +92,7 @@ export default function UserCard({ user }) {
       <CardContent>
         <p className="text-sm text-muted-foreground">{user.email}</p>
 
-        <p className="mt-1 text-sm text-muted-foreground">{user.company.name}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{user.company_name}</p>
 
         <div className="mt-4 flex gap-2">
           <a href={`https://jsonplaceholder.typicode.com/users/${user.id}`} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), 'flex-1 rounded-full')}>
