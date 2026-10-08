@@ -12,5 +12,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|favicon.ico).*)'], // semua path, kecuali file internal Next.js
+  matcher: ['/((?!_next|favicon.ico).*)'],
 };
