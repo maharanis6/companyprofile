@@ -7,6 +7,7 @@ import { useFavorite } from '@/context/FavoriteContext';
 
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
+import { useAuth } from "@/context/AuthContext";
 
 const links = [
   { href: '/', label: 'Beranda' },

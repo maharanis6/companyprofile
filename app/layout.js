@@ -1,18 +1,42 @@
 import './globals.css';
 import localFont from 'next/font/local';
 
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { UserProvider } from '@/context/UserContext';
+import { FavoriteProvider } from '@/context/FavoriteContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { createClient } from '@/lib/supabase/server';
+
+const fontSans = localFont({
+  src: [
+    {
+      path: './fonts/PlusJakartaSans-Variable.woff2',
+      style: 'normal',
+    },
+    {
+      path: './fonts/PlusJakartaSans-Italic-Variable.woff2',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+export const metadata = {
+  title: 'Paras — Build something meaningful',
+  description: 'We help individuals and businesses build modern, simple, and useful digital experiences.',
+};
 
 export default async function RootLayout({ children }) {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
   return (
     <html lang="en" className={`dark ${fontSans.variable}`}>
-      <body className="...">
+      <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
+        <UserProvider>
         <AuthProvider user={user ? { id: user.id, email: user.email } : null}>
           <FavoriteProvider>
             <Navbar />
@@ -22,6 +46,7 @@ export default async function RootLayout({ children }) {
             <Footer />
           </FavoriteProvider>
         </AuthProvider>
+        </UserProvider>
       </body>
     </html>
   );
