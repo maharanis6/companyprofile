@@ -31,8 +31,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-4 z-50 mx-auto w-full max-w-4xl px-4">
       <nav className="flex items-center justify-between gap-4 rounded-full border border-white/10 bg-background/70 px-4 py-2 shadow-lg shadow-black/20 backdrop-blur-xl">
-        <Link href="/" className="shrink-0 text-sm font-bold tracking-tight">
-          MyWebsite
+        <Link href="/" className="shrink-0 text-sm font-bold tracking-tight text-secondary">
+          Paras
         </Link>
 
         <div className="hidden items-center gap-1 text-sm text-muted-foreground sm:flex">
