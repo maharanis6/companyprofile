@@ -24,7 +24,7 @@ const fontSans = localFont({
 });
 
 export const metadata = {
-  title: 'Paras — Build something meaningful',
+  title: 'Paras',
   description: 'We help individuals and businesses build modern, simple, and useful digital experiences.',
 };
 
@@ -36,7 +36,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" className={`dark ${fontSans.variable}`}>
       <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
-        <UserProvider>
+        {/* <UserProvider> */}
         <AuthProvider user={user ? { id: user.id, email: user.email } : null}>
           <FavoriteProvider>
             <Navbar />
@@ -46,7 +46,7 @@ export default async function RootLayout({ children }) {
             <Footer />
           </FavoriteProvider>
         </AuthProvider>
-        </UserProvider>
+        {/* </UserProvider> */}
       </body>
     </html>
   );

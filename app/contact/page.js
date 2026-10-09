@@ -1,12 +1,11 @@
 'use client';
 
-import { useUser } from '@/context/UserContext';
+import { useState } from 'react';
 import { Mail, MapPin, MessageCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-
 import { submitContactForm } from './actions';
 
 const contactInfo = [
@@ -16,7 +15,10 @@ const contactInfo = [
 ];
 
 export default function Contact() {
-  const { name, email, message, submitted, setName, setEmail, setMessage, setSubmitted } = useUser();
+  const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   async function handleSubmit(event) {
     event.preventDefault();
