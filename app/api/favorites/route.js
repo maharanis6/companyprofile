@@ -1,4 +1,4 @@
-import { getAllFavorites, addFavorite } from '@/lib/services/favoriteService';
+import { getAllFavorites, addFavorite } from "@/lib/services/favoriteService";
 
 export async function GET() {
   try {
